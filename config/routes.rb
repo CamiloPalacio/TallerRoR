@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :libros
   resources :prestamos
   resources :usuarios
+  resources :get_users_lease
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root :to => 'get_users_lease#index'
 end
