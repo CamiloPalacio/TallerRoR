@@ -11,27 +11,29 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :valor, style: "display: block" %>
-    <%= form.text_field :valor %>
+  <div class="w-50 m-auto">
+    <%= form.label :valor, :class => 'form-label' %>
+    <%= form.number_field :valor, value:0 , min: 0, step: :any, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :fecha, style: "display: block" %>
-    <%= form.date_field :fecha %>
+  <div class="w-50 m-auto">
+    <%= form.label :fecha, :class => 'form-label' %>
+    <%= form.date_field :fecha, :required => true, :class => 'form-control'  %>
   </div>
 
-  <div>
-    <%= form.label :estado, style: "display: block" %>
-    <%= form.number_field :estado %>
+  <div class="w-50 m-auto">
+    <%= form.label :estado, :class => 'form-label' %>
+    <%= form.number_field :estado, value:0 , min: 0, max:1, :class => 'form-control'  %>
   </div>
 
-  <div>
-    <%= form.label :Prestamo_id, style: "display: block" %>
-    <%= form.select :Prestamo_id, options_for_select(Prestamo.all.map{|s|[s.id.to_s + ': '+s.fecha.to_s+' | '+s.estado.to_s]}) %>
-  </div>
+  <div class="w-50 m-auto">
+    <%= form.label :Prestamo_id, :class => 'form-label' %>
+    <%#<%= form.select :Prestamo_id, options_for_select(Prestamo.all.map{|s|[s.id.to_s + ': '+s.fecha.to_s+' | '+s.estado.to_s]}) %>
+    <%= form.select(:Prestamo_id, options_for_select(Prestamo.all.map{|s|[s.id.to_s + ': '+s.fecha.to_s+' | '+s.estado.to_s]}), { include_blank: false }, { class: 'form-select' }) %>
+    </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-2 d-flex flex-row justify-content-evenly">
+    <%= form.submit 'Crear', :class => 'btn btn-primary'%>
+    <%= link_to "Regresar a Multa", multa_path , :class => 'btn btn-primary'%>
   </div>
 <% end %>

@@ -24,21 +24,14 @@
         <td><%= usuario.password %></td>
         <td><%= usuario.email %></td>        
         <td>
-          <button class="btn btn-primary">
-            <a style="text-decoration:none; color: white;" href=<%="usuarios/"+usuario.id.to_s%>>
-              Ver
-            </a>
-          </button>
+          <%= link_to "Ver", usuario , :class => 'btn btn-primary'%>
+        </td>
       </tr>
       <% end %>
     </tbody>
   </table>
   <div class="d-flex justify-content-center ">
-    <button class="btn btn-primary">
-      <a style="text-decoration:none; color: white;" href=<%=new_usuario_path%>>
-        Nuevo usuario
-      </a>
-    </button>
+    <%= link_to "Nuevo usuario", new_usuario_path , :class => 'btn btn-primary'%>
   </div>
 </div>
 

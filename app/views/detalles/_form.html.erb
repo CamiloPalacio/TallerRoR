@@ -11,25 +11,26 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :cantidad, style: "display: block" %>
-    <%= form.number_field :cantidad %>
+  <div class="w-50 m-auto">
+    <%= form.label :cantidad,  :class => 'form-label'%>
+    <%= form.number_field :cantidad, value:0 , min: 0, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :Prestamo_id, style: "display: block" %>
-    <%= form.select :Prestamo_id, options_for_select(Prestamo.all.map{|s|[s.id.to_s + ': '+s.fecha.to_s+' | '+s.estado.to_s]}) %>
+  <div class="w-50 m-auto">
+    <%= form.label :Prestamo_id, :class => 'form-label'%>
+    <%#<%= form.select :Prestamo_id, options_for_select(Prestamo.all.map{|s|[s.id.to_s + ': '+s.fecha.to_s+' | '+s.estado.to_s]}) %>
+    <%= form.select(:Prestamo_id, options_for_select(Prestamo.all.map{|s|[s.id.to_s + ': '+s.fecha.to_s+' | '+s.estado.to_s]}), { include_blank: false }, { class: 'form-select' }) %>
   </div>
 
-  <div>
-    <%= form.label :Libro_id, style: "display: block" %>
-    <%= form.select :Libro_id, options_for_select(Libro.all.map{|s|[s.id.to_s + ':' + s.titulo + ' | ' +s.autor]}) %>
+  <div class="w-50 m-auto">
+    <%= form.label :Libro_id, :class => 'form-label' %>
+    <%# <%= form.select :Libro_id, options_for_select(Libro.all.map{|s|[s.id.to_s + ':' + s.titulo + ' | ' +s.autor]}) %>
+    <%= form.select(:Libro_id, options_for_select(Libro.all.map{|s|[s.id.to_s + ':' + s.titulo + ' | ' +s.autor]}), { include_blank: false }, { class: 'form-select' }) %>
 
   </div>
-  
-
-  <div>
-    <%= form.submit %>
+  <div class="mt-2 d-flex flex-row justify-content-evenly">
+    <%= form.submit 'Crear', :class => 'btn btn-primary' %>
+    <%= link_to "Back to detalles", detalles_path , :class => 'btn btn-primary'%>
   </div>
 
 

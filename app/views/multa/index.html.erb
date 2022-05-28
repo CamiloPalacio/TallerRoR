@@ -19,21 +19,21 @@
         <td><%= "Estado: "+multum.Prestamo.estado.to_s+ " | " + multum.Prestamo.fecha.to_s %></td>
         
         <td>
+        <a style="text-decoration:none; color: white;" href=<%="multa/"+multum.id.to_s%>>
           <button class="btn btn-primary">
-            <a style="text-decoration:none; color: white;" href=<%="multa/"+multum.id.to_s%>>
-              Ver
-            </a>
+            Ver
           </button>
+        </a>
       </tr>
       <% end %>
     </tbody>
   </table>
   <div class="d-flex justify-content-center ">
-    <button class="btn btn-primary">
       <a style="text-decoration:none; color: white;" href=<%=new_multum_path%>>
+    <button class="btn btn-primary">
         Nueva multa
-      </a>
     </button>
+      </a>
   </div>
 </div>
 

@@ -11,42 +11,43 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nombres, style: "display: block" %>
-    <%= form.text_field :nombres %>
+  <div class="w-50 m-auto">
+    <%= form.label :nombres, :class => 'form-label' %>
+    <%= form.text_field :nombres, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :apellidos, style: "display: block" %>
-    <%= form.text_field :apellidos %>
+  <div class="w-50 m-auto">
+    <%= form.label :apellidos, :class => 'form-label' %>
+    <%= form.text_field :apellidos, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :direccion, style: "display: block" %>
-    <%= form.text_field :direccion %>
+  <div class="w-50 m-auto">
+    <%= form.label :direccion, :class => 'form-label' %>
+    <%= form.text_field :direccion, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :telefono, style: "display: block" %>
-    <%= form.text_field :telefono %>
+  <div class="w-50 m-auto">
+    <%= form.label :telefono, :class => 'form-label' %>
+    <%= form.number_field :telefono, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :login, style: "display: block" %>
-    <%= form.text_field :login %>
+  <div class="w-50 m-auto">
+    <%= form.label :login, :class => 'form-label' %>
+    <%= form.text_field :login, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
+  <div class="w-50 m-auto">
+    <%= form.label :password, :class => 'form-label' %>
+    <%= form.text_field :password, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="w-50 m-auto">
+    <%= form.label :email, :class => 'form-label' %>
+    <%= form.text_field :email, :required => true, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-2 d-flex flex-row justify-content-evenly">
+    <%= form.submit 'Crear', :class => 'btn btn-primary' %>
+    <%= link_to "Regresar a usuarios", usuarios_path , :class => 'btn btn-primary'%>
   </div>
 <% end %>

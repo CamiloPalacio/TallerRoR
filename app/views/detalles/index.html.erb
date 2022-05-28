@@ -1,4 +1,4 @@
-<div class="container bg-white shadow-lg p-3 mb-5 bg-body rounded">
+<div class="container bg-white shadow-lg p-3 mb-5 bg-body w-fit rounded">
   <h1 class="text-center">Detalles</h1>
   <table class="table table-striped" >
     <thead>
@@ -16,20 +16,12 @@
         <td><%= "Estado: "+detalle.Prestamo.estado.to_s+ " | " + detalle.Prestamo.fecha.to_s %></td>
         <td><%= detalle.Libro.titulo %></td>
         <td>
-          <button class="btn btn-primary">
-            <a style="text-decoration:none; color: white;" href=<%="detalles/"+detalle.id.to_s%>>
-              Ver
-            </a>
-          </button>
+          <%= link_to "Ver", detalle , :class => 'btn btn-primary'%>
       </tr>
       <% end %>
     </tbody>
   </table>
   <div class="d-flex justify-content-center ">
-    <button class="btn btn-primary">
-      <a style="text-decoration:none; color: white;" href=<%=new_detalle_path%>>
-        Nuevo detalle
-      </a>
-    </button>
+    <%= link_to "Nuevo detalle", new_detalle_path , :class => 'btn btn-primary'%>
   </div>
 </div>

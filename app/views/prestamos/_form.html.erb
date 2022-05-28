@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :fecha, style: "display: block" %>
-    <%= form.date_field :fecha %>
+  <div class="w-50 m-auto">
+    <%= form.label :fecha, :class => 'form-label' %>
+    <%= form.date_field :fecha, :class => 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :estado, style: "display: block" %>
-    <%= form.number_field :estado %>
+  <div class="w-50 m-auto">
+    <%= form.label :estado, :class => 'form-label' %>
+    <%= form.number_field :estado, value:0 , min: 0, max:1, :class => 'form-control'  %>
   </div>
   
-  <div>
-    <%= form.label :Usuario_id, style: "display: block" %>
-    <%= form.select :Usuario_id, options_for_select(Usuario.all.map{|s|[s.id.to_s + ': ' + s.nombres + ' '+ s.apellidos]}) %>
-  </div>
+  <div class="w-50 m-auto">
+    <%= form.label :Usuario_id, :class => 'form-label' %>
+    <%#<%= form.select :Usuario_id, options_for_select(Usuario.all.map{|s|[s.id.to_s + ': ' + s.nombres + ' '+ s.apellidos]}) %>
+    <%= form.select(:Usuario_id, options_for_select(Usuario.all.map{|s|[s.id.to_s + ': ' + s.nombres + ' '+ s.apellidos]}) , { include_blank: false }, { class: 'form-select' }) %>
+    </div>
 
-  <div>
-    <%= form.submit %>
+    <div class="mt-2 d-flex flex-row justify-content-evenly">
+    <%= form.submit 'Crear', :class => 'btn btn-primary'%>
+    <%= link_to "Regresar a Prestamos", prestamos_path , :class => 'btn btn-primary'%>
   </div>
 <% end %>

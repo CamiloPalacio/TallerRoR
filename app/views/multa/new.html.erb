@@ -1,9 +1,10 @@
-<h1>New multum</h1>
+<div class="container bg-white shadow-lg p-3 mb-5 bg-body rounded">
 
-<%= render "form", multum: @multum %>
+  <h1 class="text-center">Nueva Multa</h1>
 
-<br>
+  <div class="d-flex justify-content-center flex-column">
+    <%= render "form", multum: @multum %>
+  </div>
 
-<div>
-  <%= link_to "Back to multa", multa_path %>
+
 </div>

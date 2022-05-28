@@ -3,7 +3,7 @@
   <table class="table table-striped" >
     <thead>
       <tr>
-        <th scope="col">Fecha/th>
+        <th scope="col">Fecha</th>
         <th scope="col">Estado</th>
         <th scope="col">Usuario</th>
         <th scope="col">Accion</th>
@@ -16,21 +16,14 @@
         <td><%= prestamo.estado %></td>
         <td><%= prestamo.Usuario.nombres%></td>
         <td>
-          <button class="btn btn-primary">
-            <a style="text-decoration:none; color: white;" href=<%="prestamos/"+prestamo.id.to_s%>>
-              Ver
-            </a>
-          </button>
+          <%= link_to "Ver", prestamo , :class => 'btn btn-primary'%>
+          </td>
       </tr>
       <% end %>
     </tbody>
   </table>
   <div class="d-flex justify-content-center ">
-    <button class="btn btn-primary">
-      <a style="text-decoration:none; color: white;" href=<%=new_prestamo_path%>>
-        Nuevo prestamo
-      </a>
-    </button>
+    <%= link_to "Nuevo Prestamo", new_prestamo_path , :class => 'btn btn-primary'%>
   </div>
 </div>
 
