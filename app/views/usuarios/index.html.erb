@@ -1,14 +1,53 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Usuarios</h1>
-
-<div id="usuarios">
-  <% @usuarios.each do |usuario| %>
-    <%= render usuario %>
-    <p>
-      <%= link_to "Show this usuario", usuario %>
-    </p>
-  <% end %>
+<div class="container bg-white shadow-lg p-3 mb-5 bg-body rounded">
+  <h1 class="text-center">Usuarios</h1>
+  <table class="table table-striped" >
+    <thead>
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Télefono</th>
+        <th scope="col">Login</th>
+        <th scope="col">Contraseña</th>
+        <th scope="col">Correo eléctronico</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.nombres %></td>
+        <td><%= usuario.apellidos %></td>
+        <td><%= usuario.direccion %></td>
+        <td><%= usuario.telefono %></td>
+        <td><%= usuario.login %></td>
+        <td><%= usuario.password %></td>
+        <td><%= usuario.email %></td>        
+        <td>
+          <button class="btn btn-primary">
+            <a style="text-decoration:none; color: white;" href=<%="usuarios/"+usuario.id.to_s%>>
+              Ver
+            </a>
+          </button>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center ">
+    <button class="btn btn-primary">
+      <a style="text-decoration:none; color: white;" href=<%=new_usuario_path%>>
+        Nuevo usuario
+      </a>
+    </button>
+  </div>
 </div>
 
-<%= link_to "New usuario", new_usuario_path %>
+
+
+
+
+
+
+
+
+

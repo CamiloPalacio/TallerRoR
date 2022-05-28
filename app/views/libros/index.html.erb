@@ -1,14 +1,37 @@
-<p style="color: green"><%= notice %></p>
+<div class="container bg-white shadow-lg p-3 mb-5 bg-body rounded">
+  <h1 class="text-center">Libros</h1>
+  <table class="table table-striped" >
+      <thead>
+      <tr>
+        <th scope="col">Título</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Año</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @libros.each do |libro| %>
+      <tr>
+      <td><%= libro.titulo %></td>
+      <td><%= libro.year %></td>
+      <td><%= libro.autor %></td>
+      <td>
+        <button class="btn btn-primary">
+          <a style="text-decoration:none; color: white;" href=<%="libros/"+libro.id.to_s%>>
+            Ver
+          </a>
+        </button>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center ">
+      <button class="btn btn-primary">
+        <a style="text-decoration:none; color: white;" href=<%=new_libro_path%>>
+          Nuevo libro
+        </a>
+      </button>
+    </div>
+  </div>
 
-<h1>Libros</h1>
 
-<div id="libros">
-  <% @libros.each do |libro| %>
-    <%= render libro %>
-    <p>
-      <%= link_to "Show this libro", libro %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New libro", new_libro_path %>
